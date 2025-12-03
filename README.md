@@ -45,7 +45,13 @@ Tomando esto en cuenta, nuestro modelado del dataset para adaptarlo a BigTable f
 
 > **hacer tabla de nuestro modelo :**  me basare en la del diccionario, por eso no la hice.
 ## Elección de la clave de fila
-Esta es una parte importante del proceso de diseño para la base de datos. Nuestro modelo utiliza la clave dada por: **Daily_screenTime#Exercise_Frequency#Sleep_quality#user_id**
+Esta es una parte importante del diseño de una base de datos en BigTable ya que los querys basados en clave de fila son los mas eficientes en bigTable debido a que la base ordena los datos en base a sus claves de filas.
+
+Es por esto que es recomendable diseñar un clave de fila que comience con los datos con los cuales estaremos haciendo querys mas comunmente ya que asi simplemente podremos buscar que filas corresponde a cierto prefijo de clave de fila (o a cierta expresion regular) y asi encontrar los datos deseados, esto se ve mas a detalle en la seccion de sentencias.
+
+Tomando esto en cuenta nosotros diseñamos el siguiente clave de fila: #screen_time#exercise_freq_week#sleep_quality#UID 
+Poniendo al inicio los datos mediante los cuales realizaremos querys y al final incluyendo el id del csv original para asegurar que cada clave de fila sea unica.
+
 # Proceso de importacion
 El proceso de importación consistió en varios pasos, las herramientas utilizadas están en negrita:
 1. Se creó la base de datos, esto implicó crear una cuenta nueva en Google Cloud, reclamar los 300 dólares de crédito que se ofertan como prueba gratis, y crear la tabla, configurándola para que el costo fuera el más bajo posible para que no exceder nuestro presupuesto al terminar el proyecto.
@@ -55,6 +61,12 @@ El proceso de importación consistió en varios pasos, las herramientas utilizad
 4. Se creó un script de Python **poner un link en GitHub al archivo de Python** que realiza la importación del csv descargado de Kaggle a nuestra base, tomando en cuenta las familias de columnas y la clave de fila que definimos al inicio.
 
 # Sentencias
+Todo el codigo de las sentencias fue basado en la [documentación](https://docs.cloud.google.com/bigtable/docs) que google ofrece para trabajar con bigTable desde python.
+### Create
+```python
+print("¡Hola desde Python en un chunk de Markdown!")
+x = 5 + 3
+print(f"El resultado es {x}")
 
 # Referencias
 * Mental Health & Social Media Balance Dataset. (2025). Kaggle. [https://www.kaggle.com/datasets/prince7489/mental-health-and-social-media-balance-dataset](https://www.kaggle.com/datasets/prince7489/mental-health-and-social-media-balance-dataset?utm_source=chatgpt.com)
