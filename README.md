@@ -1,2 +1,64 @@
-# proyecto-E04
-Modelación del Dataset "Mental Health &amp; Social Media Balance" obtenido de Kaggle a través del servicio de bases de datos NoSql BigTable.
+
+
+<div align="center">
+	Universidad Autónoma de Yucatán<br>
+	Facultad de Matemáticas UADY
+	<h4>Proyecto Integrador</h4>
+	<h3>MODELADO DE DATOS</h3>
+  ![Logo uady](logouady.png)
+</div>
+
+<br></br>
+**Integrantes de Equipo:**
+
+* Andrea Baeza Estrella
+* Julián Alejandro Rodríguez Jaime
+* Adrián Vázquez Martínez
+
+<div align="right">
+	Fecha de Entrega: 03/12/2025
+</div>
+
+# Dataset 
+ El [dataset](https://www.kaggle.com/datasets/prince7489/mental-health-and-social-media-balance-dataset) busca capturar la relación que existe entre los hábitos de las personas, incluido el uso de redes sociales y plataformas digitales, con su salud mental. 
+ ## Diccionario de datos: 
+| Familia | Nombre | Descripción |  Tipo de dato
+| ----------- | ----------- | ----------- |  -----------
+| User_ID | User_ID | Identificador único de usuario registrado. |  VARCHAR(4)
+| demographic_data | Age | Edad del usuario. | INT
+| demographic_data | Gender | Género del usuario. | VARCHAR(8)
+| technology_use | Daily_Screen_Time | Cantidad de tiempo que el usuario pasa en redes sociales y/o algún dispositivo electrónico. | FLOAT
+| habits | Sleep_Quality | Calidad de sueño del usuario. Valor entre 1-10. | INT
+| habits | Stress_Level | Nivel de estrés del usuario. Valor entre 1-10. | INT
+| technology_use | Days_Without_Social_Media | Días que el usuario ha pasado sin usar redes sociales | INT
+| habits | Exercise Frequency | Días de la semana que el usuario hace ejercicio | INT
+| technology_use | Social_Media_Platform | La plataforma que el usuario usa con mayor frecuencia | VARCHAR(30)
+| Happines_Index | Happines_Index | Índice de felicidad. Valor entre 1-10. | INT
+# Modelado del dataset
+La elección del dataset se realizó tanto por nuestro interés en el tema, como porque las características se adaptan muy bien a BigTable, ya que:
+- Los datos ya están organizados en el modelo clave-valor.
+- Solo es una tabla, por lo que no hay necesidad de hacer relaciones entre tablas.
+- Resulta intuitivo organizar las columnas existentes en familias de columnas.
+- La mayoría de los datos son numéricos.
+
+No buscamos un dataset muy grande a pesar de que BigTable está optimizado para trabajar con grandes cantidades de datos debido a que el manejo de mayores cantidades de datos podría llegar a ser muy costoso, por lo que, para propósitos del proyecto, preferimos optar por un dataset pequeño que siga mantiendo las demás características que lo hacen ideal para el servicio.
+
+Tomando esto en cuenta, nuestro modelado del dataset para adaptarlo a BigTable fue el siguiente:
+
+> **hacer tabla de nuestro modelo :**  me basare en la del diccionario, por eso no la hice.
+## Elección de la clave de fila
+Esta es una parte importante del proceso de diseño para la base de datos. Nuestro modelo utiliza la clave dada por: **Daily_screenTime#Exercise_Frequency#Sleep_quality#user_id**
+# Proceso de importacion
+El proceso de importación consistió en varios pasos, las herramientas utilizadas están en negrita:
+1. Se creó la base de datos, esto implicó crear una cuenta nueva en Google Cloud, reclamar los 300 dólares de crédito que se ofertan como prueba gratis, y crear la tabla, configurándola para que el costo fuera el más bajo posible para que no exceder nuestro presupuesto al terminar el proyecto.
+2.  Dentro de la consola de **Google Cloud** se configuro el **Cloud Shell** para tener acceso a nuestra base de datos.
+3.  Se crearon las columnas del Schema a través de sentencias como las que se incluyen en la 
+[seccion de sentencias](#Sentencias) de este README.
+4. Se creó un script de Python **poner un link en GitHub al archivo de Python** que realiza la importación del csv descargado de Kaggle a nuestra base, tomando en cuenta las familias de columnas y la clave de fila que definimos al inicio.
+
+# Sentencias
+
+# Referencias
+* Mental Health & Social Media Balance Dataset. (2025). Kaggle. [https://www.kaggle.com/datasets/prince7489/mental-health-and-social-media-balance-dataset](https://www.kaggle.com/datasets/prince7489/mental-health-and-social-media-balance-dataset?utm_source=chatgpt.com)
+* Google Cloud. (2025, mayo 10). _Hands on – Loading and Querying Data with Google Cloud Bigtable_ [Video]. YouTube. [https://youtu.be/9xGsRruTv5s](https://youtu.be/9xGsRruTv5s?utm_source=chatgpt.com)
+* 
