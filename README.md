@@ -62,7 +62,12 @@ El proceso de importación consistió en varios pasos, las herramientas utilizad
 
 # Sentencias
 Todo el codigo de las sentencias fue basado en la [documentación](https://docs.cloud.google.com/bigtable/docs) que google ofrece para trabajar con bigTable desde python.
+
+El archivo CRUD.py de este repositorio tiene todo el codigo del funcionamiento CRUD del proyecto, a continuacion se encuentran algunos fragmentos: 
+
 ### Create
+El siguiente codigo de python es una funcion que al llamarla le pide al usuario los datos de una fila y posteriormente la ingresa en la base de datos.
+
 ```python
 def escritura():
 	age = input("Ingresa tu edad: ")
@@ -100,6 +105,38 @@ def escritura():
     row.commit()
 ```
 
+### Read
+Encuentra las filas que tienen 2 o 3 de DailyScreenTime utilizando la clave de fila:
+
+```python
+  filas = table.read_rows(
+        filter_=row_filters.RowKeyRegexFilter(r"^(2\.0|3\.0)#.*".encode("utf-8"))
+    )
+    for fila in filas:
+        impresionFila(fila)
+```
+
+### Update
+
+Actualiza los campos de age y sleep_quality de una fila, pidiendole al usuario los nuevos datos.
+
+```python
+	age = input("Ingresa la nueva edad: ")
+    sleep_quality = input("Ingresa la nueva calidad de sueño(del 1 al 10): ")
+    fila.set_cell("demographic_data", "age", age)
+    fila.set_cell("habits", "sleep_quality", sleep_quality)
+    fila.commit()
+```
+
+### Delete 
+
+Le pide una clave de fila al usuario y posteriormente borra esa fila.
+```python
+clave = input("Ingresa la clave de la fila que quieres borrar: ")
+fila = table.row(clave)
+fila.delete()
+fila.commit()
+```
 
 # Referencias
 * Mental Health & Social Media Balance Dataset. (2025). Kaggle. [https://www.kaggle.com/datasets/prince7489/mental-health-and-social-media-balance-dataset](https://www.kaggle.com/datasets/prince7489/mental-health-and-social-media-balance-dataset?utm_source=chatgpt.com)
