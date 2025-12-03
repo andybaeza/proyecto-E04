@@ -43,6 +43,8 @@ No buscamos un dataset muy grande a pesar de que BigTable está optimizado para 
 
 Tomando esto en cuenta, nuestro modelado del dataset para adaptarlo a BigTable fue el siguiente:
 
+![Esquema de la base](esquema_habitossalud.jpeg)
+
 > **hacer tabla de nuestro modelo :**  me basare en la del diccionario, por eso no la hice.
 ## Elección de la clave de fila
 Esta es una parte importante del diseño de una base de datos en BigTable ya que los querys basados en clave de fila son los mas eficientes en bigTable debido a que la base ordena los datos en base a sus claves de filas.
