@@ -64,9 +64,42 @@ El proceso de importación consistió en varios pasos, las herramientas utilizad
 Todo el codigo de las sentencias fue basado en la [documentación](https://docs.cloud.google.com/bigtable/docs) que google ofrece para trabajar con bigTable desde python.
 ### Create
 ```python
-print("¡Hola desde Python en un chunk de Markdown!")
-x = 5 + 3
-print(f"El resultado es {x}")
+def escritura():
+	age = input("Ingresa tu edad: ")
+    gender = input("Ingresa 'm' para masculino y 'f' para femenino: ")
+    
+    if gender == 'm':
+        gender = 'Male'
+    else:
+        gender = 'Female'
+    
+    days_wout_sm = input("Ingresa el número de días a la semana que no usas redes sociales: ")
+    screen_time = input("Ingresa tus horas promedio de tiempo en pantalla por día: ")
+    sm_platform = input("Ingresa la plataforma de redes sociales que usas con mayor frecuencia: ")
+    exercise_freq_week = input("Ingresa cuántos días haces ejercicio a la semana: ")
+    sleep_quality = input("Ingresa tu calidad de sueño del 1 al 10: ")
+    stress_level = input("Ingresa tu nivel de estres del 1 al 10: ")
+    happines_index = input("Ingresa tu nivel de felicidad del 1 al 10: ")
+
+    row_key = f"{screen_time}#{exercise_freq_week}#{sleep_quality}#{random.randint(502, 10000)}"
+    row = table.direct_row(row_key)
+
+    row.set_cell("demographic_data", "age", age)
+    row.set_cell("demographic_data", "gender", gender)
+
+    row.set_cell("tech_use", "days_wout_sm", days_wout_sm)
+    row.set_cell("tech_use", "screen_time", screen_time)
+    row.set_cell("tech_use", "sm_platform", sm_platform)
+
+    row.set_cell("habits", "exercise_freq_week", exercise_freq_week)
+    row.set_cell("habits", "sleep_quality", sleep_quality)
+    row.set_cell("habits", "stress_level", stress_level)
+
+    row.set_cell("happines", "happines_index", happines_index)
+
+    row.commit()
+```
+
 
 # Referencias
 * Mental Health & Social Media Balance Dataset. (2025). Kaggle. [https://www.kaggle.com/datasets/prince7489/mental-health-and-social-media-balance-dataset](https://www.kaggle.com/datasets/prince7489/mental-health-and-social-media-balance-dataset?utm_source=chatgpt.com)
