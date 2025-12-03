@@ -1,11 +1,9 @@
-
-
 <div align="center">
 	Universidad Autónoma de Yucatán<br>
 	Facultad de Matemáticas UADY
 	<h4>Proyecto Integrador</h4>
 	<h3>MODELADO DE DATOS</h3>
-  ![Logo uady](logouady.png)
+  	<img src="logouady.png" alt="Logo UADY" width="200"><br>
 </div>
 
 <br></br>
