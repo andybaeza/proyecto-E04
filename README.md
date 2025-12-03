@@ -58,12 +58,12 @@ El proceso de importación consistió en varios pasos, las herramientas utilizad
 2.  Dentro de la consola de **Google Cloud** se configuro el **Cloud Shell** para tener acceso a nuestra base de datos.
 3.  Se crearon las columnas del Schema a través de sentencias como las que se incluyen en la 
 [seccion de sentencias](#Sentencias) de este README.
-4. Se creó un script de Python **poner un link en GitHub al archivo de Python** que realiza la importación del csv descargado de Kaggle a nuestra base, tomando en cuenta las familias de columnas y la clave de fila que definimos al inicio.
+4. Se creó un [script](https://github.com/andybaeza/proyecto-E04/blob/main/dataloader.py) de Python que realiza la importación del csv descargado de Kaggle a nuestra base, tomando en cuenta las familias de columnas y la clave de fila que definimos al inicio.
 
 # Sentencias
 Todo el codigo de las sentencias fue basado en la [documentación](https://docs.cloud.google.com/bigtable/docs) que google ofrece para trabajar con bigTable desde python.
 
-El archivo CRUD.py de este repositorio tiene todo el codigo del funcionamiento CRUD del proyecto, a continuacion se encuentran algunos fragmentos: 
+El archivo [CRUD.py](https://github.com/andybaeza/proyecto-E04/blob/main/CRUD.py) de este repositorio tiene todo el codigo del funcionamiento CRUD del proyecto, a continuacion se encuentran algunos fragmentos: 
 
 ### Create
 El siguiente codigo de python es una funcion que al llamarla le pide al usuario los datos de una fila y posteriormente la ingresa en la base de datos.
