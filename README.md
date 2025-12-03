@@ -123,9 +123,12 @@ Actualiza los campos de age y sleep_quality de una fila, pidiendole al usuario l
 ```python
 	age = input("Ingresa la nueva edad: ")
     sleep_quality = input("Ingresa la nueva calidad de sueño(del 1 al 10): ")
+    fila.delete_cell("demographic_data", "age")
     fila.set_cell("demographic_data", "age", age)
+    fila.delete_cell("habits", "sleep_quality",)
     fila.set_cell("habits", "sleep_quality", sleep_quality)
     fila.commit()
+
 ```
 
 ### Delete 
