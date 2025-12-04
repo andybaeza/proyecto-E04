@@ -144,5 +144,7 @@ fila.commit()
 ```
 
 # Referencias
-* Mental Health & Social Media Balance Dataset. (2025). Kaggle. [https://www.kaggle.com/datasets/prince7489/mental-health-and-social-media-balance-dataset](https://www.kaggle.com/datasets/prince7489/mental-health-and-social-media-balance-dataset?utm_source=chatgpt.com)
-* Google Cloud. (2025, mayo 10). _Hands on – Loading and Querying Data with Google Cloud Bigtable_ [Video]. YouTube. [https://youtu.be/9xGsRruTv5s](https://youtu.be/9xGsRruTv5s?utm_source=chatgpt.com)
+* Mental Health & Social Media Balance Dataset. (2025). Kaggle. [https://www.kaggle.com/datasets/prince7489/mental-health-and-social-media-balance-dataset](https://www.kaggle.com/datasets/prince7489/mental-health-and-social-media-balance-dataset)
+* Google Cloud. (2025, mayo 10). _Hands on – Loading and Querying Data with Google Cloud Bigtable_ [Video]. YouTube. [https://youtu.be/9xGsRruTv5s](https://youtu.be/9xGsRruTv5s)
+* Farrukh, M. (2023, septiembre 9). *Getting started with BigTable using client libraries — Python*. Medium. [https://medium.com/@mouaazfarrukh99/getting-started-with-bigtable-using-client-libraries-python-6cc97e7b6fad](https://medium.com/@mouaazfarrukh99/getting-started-with-bigtable-using-client-libraries-python-6cc97e7b6fad)
+* Google. (s. f.). Leer ejemplos — Cloud Bigtable [Documentación]. Google Cloud. [https://docs.cloud.google.com/bigtable/docs/reading-data?hl=es-419#python_3](https://docs.cloud.google.com/bigtable/docs/reading-data?hl=es-419#python_3)
