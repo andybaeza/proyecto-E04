@@ -17,6 +17,7 @@
 	Fecha de Entrega: 03/12/2025
 </div>
 
+---
 # Dataset 
  El [dataset](https://www.kaggle.com/datasets/prince7489/mental-health-and-social-media-balance-dataset) busca capturar la relación que existe entre los hábitos de las personas, incluido el uso de redes sociales y plataformas digitales, con su salud mental. 
  ## Diccionario de datos: 
@@ -31,8 +32,8 @@
 | tech_use | days_wout_sm | Días que el usuario ha pasado sin usar redes sociales. | INT
 | habits | exercise_freq_week | Días de la semana que el usuario hace ejercicio. | INT
 | tech_use | sm_platform | La plataforma que el usuario usa con mayor frecuencia. | VARCHAR(30)
-| happines | happines_index | Índice de felicidad. Valor entre 1-10. | INT
-
+| happiness | happines_index | Índice de felicidad. Valor entre 1-10. | INT
+-----
 # Modelado del dataset
 La elección del dataset se realizó tanto por nuestro interés en el tema, como porque las características se adaptan muy bien a BigTable, ya que:
 - Los datos ya están organizados en el modelo clave-valor.
@@ -54,6 +55,7 @@ Por esto, es recomendable diseñar una clave de fila que comience con los datos 
 Tomando esto en cuenta, diseñamos la siguiente clave de fila: #screen_time#exercise_freq_week#sleep_quality#UID 
 Poniendo al inicio los datos mediante los cuales realizaremos querys, y al final el id del csv original para asegurar que cada clave de fila sea única.
 
+---
 # Proceso de importación
 El proceso de importación consistió en varios pasos, las herramientas utilizadas están en negrita:
 1. Se creó la base de datos, esto implicó crear una cuenta nueva en Google Cloud, reclamar los 300 dólares de crédito que se ofertan como prueba gratis, y crear la tabla, configurándola para que el costo fuera el más bajo posible para que no exceder nuestro presupuesto al terminar el proyecto.
@@ -62,6 +64,7 @@ El proceso de importación consistió en varios pasos, las herramientas utilizad
 [seccion de sentencias](#Sentencias) de este README.
 4. Se creó un [script](https://github.com/andybaeza/proyecto-E04/blob/main/dataloader.py) de Python que realiza la importación del csv descargado de Kaggle a nuestra base, tomando en cuenta las familias de columnas y la clave de fila que definimos al inicio.
 
+---
 # Sentencias
 Todo el codigo de las sentencias fue basado en la [documentación](https://docs.cloud.google.com/bigtable/docs) que google ofrece para trabajar con bigTable desde python.
 
@@ -143,6 +146,7 @@ fila.delete()
 fila.commit()
 ```
 
+---
 # Referencias
 * Mental Health & Social Media Balance Dataset. (2025). Kaggle. [https://www.kaggle.com/datasets/prince7489/mental-health-and-social-media-balance-dataset](https://www.kaggle.com/datasets/prince7489/mental-health-and-social-media-balance-dataset)
 * Google Cloud. (2025, mayo 10). _Hands on – Loading and Querying Data with Google Cloud Bigtable_ [Video]. YouTube. [https://youtu.be/9xGsRruTv5s](https://youtu.be/9xGsRruTv5s)
